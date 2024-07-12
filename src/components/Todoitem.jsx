@@ -5,13 +5,15 @@ export default function Todoitem({ item, todos, setTodos }) {
   }
 
   function handleClick(name) {
-    const newArray = todos.map((todo) =>
-      todo.name === name ? { ...todo, done: !todo.done } : todo
+    setTodos(
+      todos.map((todo) =>
+        todo.name === name ? { ...todo, done: !todo.done } : todo
+      )
     );
-
-    setTodos(newArray);
   }
+
   const className = item.done ? styles.completed : "";
+
   return (
     <div className={styles.item}>
       <div className={styles.itemName}>
